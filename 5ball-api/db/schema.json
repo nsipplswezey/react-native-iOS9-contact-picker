@@ -1,17 +1,31 @@
 {
 
-  "migration_id": 2016012002354982,
+  "migration_id": 2016012006134353,
 
   "models": {
 
-    "Course": {
+    "TeeTime": {
 
-      "table": "courses",
+      "table": "tee_times",
 
       "columns": [
         {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
-        {"name": "course_id", "type": "int"},
-        {"name": "name", "type": "string"},
+        {"name": "user_id", "type": "int"},
+        {"name": "teetime", "type": "datetime"},
+        {"name": "created_at", "type": "datetime"}
+      ]
+
+    },
+
+    "User": {
+
+      "table": "users",
+
+      "columns": [
+        {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "email", "type": "string", "properties": {"unique":true}},
+        {"name": "password", "type": "string"},
+        {"name": "username", "type": "string"},
         {"name": "created_at", "type": "datetime"}
       ]
 

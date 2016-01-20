@@ -8,6 +8,7 @@
     "node": "4.2.4"
   },
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "nodal": "latest"
   },
   "devDependencies": {

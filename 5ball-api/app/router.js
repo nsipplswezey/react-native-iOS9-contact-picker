@@ -11,7 +11,8 @@ module.exports = (function() {
 
   /* generator: begin imports */
 
-  const V1CoursesController = Nodal.require('app/controllers/v1/courses_controller.js');
+  const V1UsersController = Nodal.require('app/controllers/v1/users_controller.js');
+  const V1TeeTimesController = Nodal.require('app/controllers/v1/tee_times_controller.js');
 
   /* generator: end imports */
 
@@ -20,7 +21,8 @@ module.exports = (function() {
 
   /* generator: begin routes */
 
-  router.route(/^\/v1\/courses\/?/, V1CoursesController);
+  router.route(/^\/v1\/users\/?/, V1UsersController);
+  router.route(/^\/v1\/tee_times\/?/, V1TeeTimesController);
 
   /* generator: end routes */
 
