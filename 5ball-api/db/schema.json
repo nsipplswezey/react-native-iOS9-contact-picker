@@ -1,0 +1,22 @@
+{
+
+  "migration_id": 2016012002354982,
+
+  "models": {
+
+    "Course": {
+
+      "table": "courses",
+
+      "columns": [
+        {"name": "id", "type": "serial", "properties": {"nullable":false,"primary_key":true,"auto_increment":true}},
+        {"name": "course_id", "type": "int"},
+        {"name": "name", "type": "string"},
+        {"name": "created_at", "type": "datetime"}
+      ]
+
+    }
+
+  }
+
+}

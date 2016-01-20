@@ -1,0 +1,30 @@
+{
+  "name": "5ball",
+  "version": "1.0.0",
+  "description": "nodal api",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "nodal": "nodal"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nsipplswezey/5ball.git"
+  },
+  "keywords": [
+    "node",
+    "api"
+  ],
+  "author": "nsipplswezey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nsipplswezey/5ball/issues"
+  },
+  "homepage": "https://github.com/nsipplswezey/5ball#readme",
+  "dependencies": {
+    "nodal": "^0.5.6"
+  },
+  "devDependencies": {
+    "nodal": "^0.5.6"
+  }
+}
