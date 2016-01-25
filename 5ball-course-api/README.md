@@ -1,4 +1,4 @@
-# A Nodal Application
+# API
 
 ## GET
 /v1/tee_times
