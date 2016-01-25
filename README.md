@@ -1,6 +1,9 @@
 # 5ball
 nodal api for 4ball
 
+# End Points
+See each server for end points.
+
 # Local nodal
 Nodal docs advise global install. I prefer local and using package.json scripts to use the package.
 
