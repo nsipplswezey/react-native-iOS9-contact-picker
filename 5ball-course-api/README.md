@@ -41,22 +41,28 @@ Array of Object of the form
 
 ## POST
 /v1/tee_times
+
 Takes x-www-form-urlencoded with two fields
+
 user_id : [int] 
 teetime: [UTC date]
 
 ex.
+
 user_id : 2
 teetime: 2016-02-14T20:12:54.000Z
 
 
 /v1/users
+
 Takes x-www-form-urlencoded with two fields
+
 username : [string]
 email : [string]
 password : [string]
 
 ex.
+
 username : tpcharding
 email : admin@tpcharding.com
 password : tpcharding1
