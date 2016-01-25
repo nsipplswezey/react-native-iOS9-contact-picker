@@ -1,5 +1,18 @@
 # API
 
+This is the API for managing all concerns regarding courses.
+
+Current functionality:
+
+Get tee times
+
+Get courses
+
+Create new tee times
+
+Create new courses
+
+
 ## GET
 /v1/tee_times
 Array of Objects ex.
