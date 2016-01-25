@@ -74,6 +74,6 @@ password : tpcharding1
 npm run nodal -- s
 ```
 
-Your app should now be running on [localhost:3000](http://localhost:3000/).
+Course API should now be available at [localhost:3000](http://localhost:3000/).
 
 
