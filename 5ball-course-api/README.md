@@ -3,6 +3,7 @@
 ## GET
 /v1/tee_times
 Array of Objects ex.
+```
 {
   "data": [
     {
@@ -19,9 +20,12 @@ Array of Objects ex.
     }
   ]
 }
+```
 
 /v1/users
 Array of Object of the form
+
+```
     {
       "id": 1,
       "user_id": 1,
@@ -33,6 +37,7 @@ Array of Object of the form
         "created_at": "2016-01-20T08:52:01.499Z"
       }
     }
+```
 
 ## POST
 /v1/tee_times
