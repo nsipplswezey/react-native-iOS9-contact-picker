@@ -92,7 +92,6 @@ class NavButton extends Component {
 var NavigationBarRouteMapper = {
 
   LeftButton: function(route, navigator, index,navState){
-    if (index === 0) {
       return null;
     }
 
@@ -193,7 +192,6 @@ var NavigationBarRouteMapper = {
 function createInitialRoutes() {
   return [
     {title: 'map'},
-    {title: 'courses'},
     {title: 'tee times'},
     {title: 'friends '},
     {title: 'confirmations'}
@@ -243,28 +241,27 @@ var NavigationBarSample = React.createClass({
     return(
       <Navigator
         debugOverlay={false}
-	style={styles.appContainer}
-	initialRouteStack={[{title: 'map'}]}
-	renderScene={(route,navigator) => (
+		style={styles.appContainer}
+		initialRouteStack={[{title: 'map'}]}
+		renderScene={(route,navigator) => (
+	  	  <ScrollView style={styles.scene}>
+	        <Text style={styles.messageText}>{'hello ' + route.title}</Text>
 
-	  <ScrollView style={styles.scene}>
-	    <Text style={styles.messageText}>{'hello ' + route.title}</Text>
-
-	    <NavButton
-	      onPress={() => {
-	        //navigator.immediatelyResetRouteStack(createInitialRoutes());
-	      }}
-	      text="Navigate to MapView"
-	   />
-	   <NavButton
-	     onPress={() => {
-		     //this doesn't do anything... can be removed
-	       this.props.navigator.pop();
-	     }}
-	     text="Test native interaction"
-	   />
-	   <MapViewExample />
-	  </ScrollView>
+	        <NavButton
+	          onPress={() => {
+	          //navigator.immediatelyResetRouteStack(createInitialRoutes());
+	          }}
+	          text="Navigate to MapView"
+	        />
+	        <NavButton
+	          onPress={() => {
+		       //this doesn't do anything... can be removed
+	          this.props.navigator.pop();
+	         }}
+	         text="Test native interaction"
+	        />
+	       <MapViewExample />
+	      </ScrollView>
 	)}
 	navigationBar={
 	  <Navigator.NavigationBar
