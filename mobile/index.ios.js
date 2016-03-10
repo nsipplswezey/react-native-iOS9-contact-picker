@@ -92,6 +92,7 @@ class NavButton extends Component {
 var NavigationBarRouteMapper = {
 
   LeftButton: function(route, navigator, index,navState){
+      if (index === 0){
       return null;
     }
 
@@ -142,9 +143,10 @@ var NavigationBarRouteMapper = {
     function _onPress(index,navState){
       testNative();
       var routes = createInitialRoutes();
+      var maxStack = routes.length-1
       var nextRoute = routes[index+1];
       console.log(index,navState.routeStack.length);
-      if(index == 3 && navState.routeStack.length > 4){
+      if(navState.routeStack.length > maxStack){
         return null
       }else{
         navigator.push(nextRoute)
@@ -162,7 +164,7 @@ var NavigationBarRouteMapper = {
       }
     }
 
-    if (index >= 4){
+    if (index >= 3){
       return null;
     }else{
       return (
@@ -191,10 +193,14 @@ var NavigationBarRouteMapper = {
 
 function createInitialRoutes() {
   return [
-    {title: 'map'},
-    {title: 'tee times'},
-    {title: 'friends '},
-    {title: 'confirmations'}
+    {title: 'map',
+     component: MapViewExample,},
+    {title: 'tee times',
+     component: NavButton,},
+    {title: 'friends ',
+     component: NavButton,},
+    {title: 'confirmations',
+     component: NavButton,}
   ]
 
 };
@@ -242,7 +248,7 @@ var NavigationBarSample = React.createClass({
       <Navigator
         debugOverlay={false}
 		style={styles.appContainer}
-		initialRouteStack={[{title: 'map'}]}
+		initialRouteStack={[createInitialRoutes()[0]]}
 		renderScene={(route,navigator) => (
 	  	  <ScrollView style={styles.scene}>
 	        <Text style={styles.messageText}>{'hello ' + route.title}</Text>
@@ -260,7 +266,7 @@ var NavigationBarSample = React.createClass({
 	         }}
 	         text="Test native interaction"
 	        />
-	       <MapViewExample />
+	       <route.component />
 	      </ScrollView>
 	)}
 	navigationBar={
