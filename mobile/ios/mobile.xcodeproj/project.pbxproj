@@ -21,6 +21,9 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
+		3A2F2C3F1C92301600DC3C2E /* PhoneNumberPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F2C3E1C92301600DC3C2E /* PhoneNumberPicker.swift */; };
+		3A2F2C4B1C92311B00DC3C2E /* PhoneNumberPickerBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F2C4A1C92311B00DC3C2E /* PhoneNumberPickerBridge.m */; };
+		3A2F2C4D1C951F3E00DC3C2E /* RCTContactPickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2F2C4C1C951F3E00DC3C2E /* RCTContactPickerManager.m */; };
 		3A3068C71C8E082C008F072D /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3068C61C8E082C008F072D /* CalendarManager.m */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 /* End PBXBuildFile section */
@@ -125,6 +128,11 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = mobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = mobile/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
+		3A2F2C3D1C92301500DC3C2E /* mobile-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mobile-Bridging-Header.h"; sourceTree = "<group>"; };
+		3A2F2C3E1C92301600DC3C2E /* PhoneNumberPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhoneNumberPicker.swift; path = mobile/PhoneNumberPicker.swift; sourceTree = "<group>"; };
+		3A2F2C4A1C92311B00DC3C2E /* PhoneNumberPickerBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhoneNumberPickerBridge.m; path = mobile/PhoneNumberPickerBridge.m; sourceTree = "<group>"; };
+		3A2F2C4C1C951F3E00DC3C2E /* RCTContactPickerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTContactPickerManager.m; path = mobile/RCTContactPickerManager.m; sourceTree = "<group>"; };
+		3A2F2C4E1C951F7A00DC3C2E /* RCTContactPickerManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTContactPickerManager.h; path = mobile/RCTContactPickerManager.h; sourceTree = "<group>"; };
 		3A3068C61C8E082C008F072D /* CalendarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarManager.m; path = mobile/CalendarManager.m; sourceTree = "<group>"; };
 		3A3068D21C8E0844008F072D /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CalendarManager.h; path = mobile/CalendarManager.h; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
@@ -236,10 +244,15 @@
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
+				3A2F2C3D1C92301500DC3C2E /* mobile-Bridging-Header.h */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				3A3068D21C8E0844008F072D /* CalendarManager.h */,
 				3A3068C61C8E082C008F072D /* CalendarManager.m */,
+				3A2F2C4E1C951F7A00DC3C2E /* RCTContactPickerManager.h */,
+				3A2F2C4C1C951F3E00DC3C2E /* RCTContactPickerManager.m */,
+				3A2F2C3E1C92301600DC3C2E /* PhoneNumberPicker.swift */,
+				3A2F2C4A1C92311B00DC3C2E /* PhoneNumberPickerBridge.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
@@ -355,6 +368,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Facebook;
 				TargetAttributes = {
@@ -550,9 +564,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2F2C4D1C951F3E00DC3C2E /* RCTContactPickerManager.m in Sources */,
+				3A2F2C4B1C92311B00DC3C2E /* PhoneNumberPickerBridge.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 				3A3068C71C8E082C008F072D /* CalendarManager.m in Sources */,
+				3A2F2C3F1C92301600DC3C2E /* PhoneNumberPicker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -620,6 +637,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEAD_CODE_STRIPPING = NO;
@@ -635,6 +653,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nss.5ball.mobile;
 				PRODUCT_NAME = mobile;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "mobile-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -642,6 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = YES;
@@ -656,6 +677,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = nss.5ball.mobile;
 				PRODUCT_NAME = mobile;
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "mobile-Bridging-Header.h";
 			};
 			name = Release;
 		};

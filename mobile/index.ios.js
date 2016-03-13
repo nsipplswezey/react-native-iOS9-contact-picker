@@ -3,7 +3,6 @@
  * https://github.com/facebook/react-native
  */
 
-
 'use strict';
 import React, {
   AppRegistry,
@@ -15,16 +14,16 @@ import React, {
   TouchableHighlight,
   TouchableOpacity,
   ScrollView,
-  NativeModules,
-  NativeAppEventEmitter,
 } from 'react-native';
 
 var Platform = require('Platform');
 var TouchableWithoutFeedback = require('TouchableWithoutFeedback');
 var cssVar = require('cssVar');
-var CalendarManager = NativeModules.CalendarManager;
 var CourseMap = require('./CourseMap.js');
 var MapViewExample = CourseMap.examples[1].component;
+var NavButton = require('./NavButton.js').default;
+var PhonePicker = require('./PhonePicker').default;
+var PickerButton = require('./PickerButton').default;
 
 
 var styles = StyleSheet.create({
@@ -37,16 +36,6 @@ var styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-  },
-  button: {
-    backgroundColor: 'white',
-    padding: 15,
-    borderBottomWidth: StyleSheet.hairlineWidth,
-    borderBottomColor: '#CDCDCD',
-  },
-  buttonText: {
-    fontSize: 17,
-    fontWeight: '500',
   },
   navBar: {
     backgroundColor: 'white',
@@ -76,19 +65,6 @@ var styles = StyleSheet.create({
   },
 });
 
-class NavButton extends Component {
-  render() {
-    return (
-      <TouchableHighlight
-        style={styles.button}
-	underlayColor="#B5B5B5"
-	onPress={this.props.onPress}>
-	<Text style={styles.buttonText}>{this.props.text}</Text>
-      </TouchableHighlight>
-    );
-  }
-}
-
 var NavigationBarRouteMapper = {
 
   LeftButton: function(route, navigator, index,navState){
@@ -110,42 +86,10 @@ var NavigationBarRouteMapper = {
 
   RightButton: function(route, navigator, index, navState) {
  
-    function testNative(index){
-      var testDate = new Date();
-      CalendarManager.addEvent('Birthday Party',
-			       {location: '4 Privet Drive, Surrey', 
-				time: testDate.getTime()});
-      // Using callbacks
-      CalendarManager.findEvents((error, events) => {
-        if(error){
-	  console.error(error);
-	} else{
-	  console.log(events);
-	}
-      });
-
-      // Using promises
-      async function updateEvents() {
-        try {
-	  var events = await CalendarManager.updateEvents();
-	  console.log(events);
-	} catch (e) {
-	  console.error(e);
-	}
-      }
-
-      updateEvents()
-
-      // Exporting constants
-      console.log(CalendarManager.firstDayOfWeek);
-    }
-
     function _onPress(index,navState){
-      testNative();
       var routes = createInitialRoutes();
       var maxStack = routes.length-1
       var nextRoute = routes[index+1];
-      console.log(index,navState.routeStack.length);
       if(navState.routeStack.length > maxStack){
         return null
       }else{
@@ -196,9 +140,9 @@ function createInitialRoutes() {
     {title: 'map',
      component: MapViewExample,},
     {title: 'tee times',
-     component: NavButton,},
+     component: PickerButton,},
     {title: 'friends ',
-     component: NavButton,},
+     component: PhonePicker,},
     {title: 'confirmations',
      component: NavButton,}
   ]
@@ -209,12 +153,6 @@ function createInitialRoutes() {
 var NavigationBarSample = React.createClass({
 
   componentWillMount: function() {
-
-    //native events
-    var subscription = NativeAppEventEmitter.addListener(
-      'EventReminder',
-      (reminder) => console.log(reminder.name)
-    );
 
     var navigator = this.props.navigator;
 
@@ -262,7 +200,6 @@ var NavigationBarSample = React.createClass({
 	        <NavButton
 	          onPress={() => {
 		       //this doesn't do anything... can be removed
-	          this.props.navigator.pop();
 	         }}
 	         text="Test native interaction"
 	        />
