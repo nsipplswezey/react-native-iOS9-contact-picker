@@ -80,7 +80,7 @@ class PhonePicker extends Component {
   render() {
     return(
       <NavButton
-        onPress={() => testPicker((value)=>AlertIOS.alert('value',value))}
+        onPress={() => testPicker((value)=>AlertIOS.alert(value,'value'))}
         text="Select Friends to Invite" 
       />
     )}

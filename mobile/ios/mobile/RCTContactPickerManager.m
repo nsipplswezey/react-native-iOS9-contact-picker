@@ -20,15 +20,18 @@
 
 @implementation RCTContactPickerManager
 {
+  NSMutableArray<RCTResponseSenderBlock> *_callbacks;
   
-}
+};
 
 RCT_EXPORT_MODULE()
 
 RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
                   callback:(RCTResponseSenderBlock)callback)
 {
-  callback(@[@"hello"]);
+  //callback(@[@"hello"]);
+  _callbacks = [NSMutableArray new];
+  [_callbacks addObject:callback];
   
   UIViewController *presentingController = RCTKeyWindow().rootViewController;
   if(presentingController == nil) {
@@ -40,8 +43,6 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
     presentingController = presentingController.presentedViewController;
   }
   
-  
-  
   CNContactPickerViewController *contactPickerController = [CNContactPickerViewController new];
   
   NSArray *displayedItems = @[CNContactPhoneNumbersKey,CNContactEmailAddressesKey,CNContactBirthdayKey];
@@ -49,6 +50,26 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
   contactPickerController.displayedPropertyKeys = displayedItems;
   
   [presentingController presentViewController:contactPickerController animated:YES completion:nil];
+  
+}
+
+#pragma mark - CNContactPickerViewControllerDelegate
+
+- (void)contactPicker:(CNContactPickerViewController *)contactPickerController didSelectContactProperty:(CNContactProperty*)contactProperty
+{
+  CNContact* contact = contactProperty.contact;
+  CNPhoneNumber* contactPhone = contactProperty.value;
+  NSString* phoneNumber = contactPhone.stringValue;
+  
+  RCTResponseSenderBlock callback = _callbacks[0];
+  
+  callback(@[@1,phoneNumber]);
+  
+  RCTLogInfo(@"Contact selected with phone number %@", phoneNumber);
+  
+  [_callbacks removeObjectAtIndex:0];
+  
+  
   
 }
 
