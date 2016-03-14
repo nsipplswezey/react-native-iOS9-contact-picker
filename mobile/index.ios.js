@@ -24,7 +24,7 @@ var MapViewExample = CourseMap.examples[1].component;
 var NavButton = require('./NavButton.js').default;
 var PhonePicker = require('./PhonePicker').default;
 var PickerButton = require('./PickerButton').default;
-
+var PhonePickerView = require('./PhonePickerView.js').default;
 
 var styles = StyleSheet.create({
   messageText: {
@@ -142,7 +142,7 @@ function createInitialRoutes() {
     {title: 'tee times',
      component: PickerButton,},
     {title: 'friends ',
-     component: PhonePicker,},
+     component: PhonePickerView,},
     {title: 'confirmations',
      component: NavButton,}
   ]
@@ -279,12 +279,6 @@ var TabBarExample = React.createClass({
 
 
 class mobile extends Component {
-
-	//figure out what nav is supposed to be
-	//it has a navigationContext property
-	//it has a pop() method... so it's a queue
-	//it has an immediatelyResetRouteStack... so it looks like it's an instance of a core class
-	//it gets passed into the render scene function
   render() {
     return(
 	<TabBarExample/>

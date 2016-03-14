@@ -60,16 +60,15 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
   CNContact* contact = contactProperty.contact;
   CNPhoneNumber* contactPhone = contactProperty.value;
   NSString* phoneNumber = contactPhone.stringValue;
+  NSString* contactName = [CNContactFormatter stringFromContact:contact style:CNContactFormatterStyleFullName];
   
   RCTResponseSenderBlock callback = _callbacks[0];
   
-  callback(@[@1,phoneNumber]);
+  callback(@[contactName,phoneNumber]);
   
-  RCTLogInfo(@"Contact selected with phone number %@", phoneNumber);
+  //RCTLogInfo(@"Contact selected with phone number %@", phoneNumber);
   
   [_callbacks removeObjectAtIndex:0];
-  
-  
   
 }
 

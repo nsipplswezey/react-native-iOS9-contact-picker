@@ -26,7 +26,7 @@ var subscription = NativeAppEventEmitter.addListener(
 
 var testPicker = function(callback){
   RCTContactPickerManager.openContactPicker({arg1: "hello"},
-				    (id,value) => callback(value))
+				    (name,number) => callback(name,number))
 }
 
 var testNative = function(index){
@@ -76,14 +76,29 @@ var testNative = function(index){
 
 
 class PhonePicker extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      inviteName: null,
+      inviteNumber: null,
+      text: "Select Friends to Invite",
+    };
+  }
 
   render() {
     return(
       <NavButton
-        onPress={() => testPicker((value)=>AlertIOS.alert(value,'value'))}
-        text="Select Friends to Invite" 
+        onPress={() => testPicker((name,number) => this._handleTouch(name,number))}
+        text={this.state.text} 
       />
-    )}
+    );
+  }
+
+  _handleTouch(name,number){
+    this.setState({inviteName: name,
+		   inviteNumber: number,
+    		   text: name + ' - ' + number});
+  }
 }
 
 export default PhonePicker;
