@@ -22,9 +22,9 @@ var cssVar = require('cssVar');
 var CourseMap = require('./CourseMap.js');
 var MapViewExample = CourseMap.examples[1].component;
 var NavButton = require('./NavButton.js').default;
-var PhonePicker = require('./PhonePicker').default;
+var PhonePicker = require('./PhonePicker');
 var PickerButton = require('./PickerButton').default;
-var PhonePickerView = require('./PhonePickerView.js').default;
+var PhonePickerView = require('./PhonePickerView.js');
 
 var styles = StyleSheet.create({
   messageText: {

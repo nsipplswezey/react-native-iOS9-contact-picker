@@ -5,7 +5,7 @@ import React, {
   View,
 } from 'react-native';
 
-var PhonePicker = require('./PhonePicker.js').default;
+var PhonePicker = require('./PhonePicker.js');
 
 class PhonePickerView extends Component {
   render(){
@@ -20,5 +20,5 @@ class PhonePickerView extends Component {
   }
 }
 
-export default PhonePickerView;
+module.exports = PhonePickerView;
 
