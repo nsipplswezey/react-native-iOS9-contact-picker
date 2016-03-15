@@ -26,10 +26,14 @@
 
 RCT_EXPORT_MODULE()
 
+- (dispatch_queue_t)methodQueue
+{
+  return dispatch_get_main_queue();
+}
+
 RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
                   callback:(RCTResponseSenderBlock)callback)
 {
-  //callback(@[@"hello"]);
   _callbacks = [NSMutableArray new];
   [_callbacks addObject:callback];
   
@@ -65,8 +69,6 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
   RCTResponseSenderBlock callback = _callbacks[0];
   
   callback(@[contactName,phoneNumber]);
-  
-  //RCTLogInfo(@"Contact selected with phone number %@", phoneNumber);
   
   [_callbacks removeObjectAtIndex:0];
   
