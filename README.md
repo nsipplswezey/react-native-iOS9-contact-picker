@@ -1,21 +1,6 @@
-# 5ball
-nodal api for 4ball
+# React-Native iOS9 Native Contact Picker
 
-# End Points
-See each API directory for basic end point documentation.
+## See mobile for a function example
 
-# Local nodal
-Nodal docs advise global install. I prefer local and using package.json scripts to use the package.
-
-To access nodal use:
-```
-npm run nodal -- [arguments]
-```
-
-You can look in package.json to see the nodal script
-```
-"scripts":{
-  "nodal" : "nodal"
-  }
-```
+## See dist for the components
 
