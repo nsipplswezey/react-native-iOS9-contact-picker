@@ -122,7 +122,7 @@ var NavigationBarRouteMapper = {
 
     return (
       <Text style={[styles.navBarText, styles.navBarTitleText]}>
-        {currentRoute.title} [{index}]
+        {currentRoute.title}
       </Text>
     );
   },
@@ -131,7 +131,7 @@ var NavigationBarRouteMapper = {
 
 function createInitialRoutes() {
   return [
-    {title: 'friends ',
+    {title: 'iOS9 Native Contact Picker Demo',
      component: PhonePickerView,},
   ]
 
@@ -177,21 +177,7 @@ var NavigationBarSample = React.createClass({
 		initialRouteStack={[createInitialRoutes()[0]]}
 		renderScene={(route,navigator) => (
 	  	  <ScrollView style={styles.scene}>
-	        <Text style={styles.messageText}>{'hello ' + route.title}</Text>
-
-	        <NavButton
-	          onPress={() => {
-	          //navigator.immediatelyResetRouteStack(createInitialRoutes());
-	          }}
-	          text="Navigate to MapView"
-	        />
-	        <NavButton
-	          onPress={() => {
-		       //this doesn't do anything... can be removed
-	         }}
-	         text="Test native interaction"
-	        />
-	       <route.component />
+	        <route.component />
 	      </ScrollView>
 	)}
 	navigationBar={
@@ -222,15 +208,15 @@ var TabBarExample = React.createClass({
       <Navigator
         ref={this._setNavigatorRef}
         style={styles.container}
-	initialRoute={createInitialRoutes()[0]}
-	renderScene={this.renderScene}
-	configureScene={(route) => {
-	  if(route.sceneConfig){
-	    return route.sceneConfig;
-	  }
-	  return;
-	}}
-	/>
+	      initialRoute={createInitialRoutes()[0]}
+	      renderScene={this.renderScene}
+	      configureScene={(route) => {
+	        if(route.sceneConfig){
+	          return route.sceneConfig;
+	        }
+	      return;
+	     }
+     }/>
     );
   },
 
