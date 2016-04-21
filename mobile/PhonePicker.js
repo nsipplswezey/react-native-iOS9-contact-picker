@@ -5,17 +5,16 @@ import React, {
   AlertIOS,
   NativeModules,
   NativeAppEventEmitter,
+  requireNativeComponent
 } from 'react-native';
 
 var NavButton = require('./NavButton.js').default;
-const ContactPickerIOS = require('./ContactPickerIOS.js');
 
+var ContactPickerManager = NativeModules.ContactPickerManager || NativeModules.ContactPickerModule;
 
 var nativePicker = function(callback){
-  console.log('contact picker', ContactPickerIOS);
-  ContactPickerIOS.openPicker({arg1: "hello"},
-			      (name,number) => callback(name,number));
-}
+  ContactPickerManager.openContactPicker({arg1: "hello"},callback);
+};
 
 class PhonePicker extends Component {
   constructor(props){

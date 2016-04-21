@@ -8,20 +8,20 @@
 
 #import <Foundation/Foundation.h>
 
-#import "RCTContactPickerManager.h"
+#import "ContactPickerManager.h"
 #import "RCTLog.h"
 #import "RCTUtils.h"
 #import <Contacts/Contacts.h>
 #import <ContactsUI/ContactsUI.h>
 
-@interface RCTContactPickerManager() <CNContactPickerDelegate, CNContactViewControllerDelegate>
+@interface ContactPickerManager() <CNContactPickerDelegate, CNContactViewControllerDelegate>
 
 @end
 
-@implementation RCTContactPickerManager
+@implementation ContactPickerManager
 {
   NSMutableArray<RCTResponseSenderBlock> *_callbacks;
-  
+
 };
 
 RCT_EXPORT_MODULE()
@@ -36,25 +36,25 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
 {
   _callbacks = [NSMutableArray new];
   [_callbacks addObject:callback];
-  
+
   UIViewController *presentingController = RCTKeyWindow().rootViewController;
   if(presentingController == nil) {
     RCTLogError(@"Tried to display contact picker, but there is no application window. args:%@",args);
   }
-  
+
   // Walk the chain to the topmost model view controller.
   while(presentingController.presentedViewController) {
     presentingController = presentingController.presentedViewController;
   }
-  
+
   CNContactPickerViewController *contactPickerController = [CNContactPickerViewController new];
-  
+
   NSArray *displayedItems = @[CNContactPhoneNumbersKey,CNContactEmailAddressesKey,CNContactBirthdayKey];
   contactPickerController.delegate = self;
   contactPickerController.displayedPropertyKeys = displayedItems;
-  
+
   [presentingController presentViewController:contactPickerController animated:YES completion:nil];
-  
+
 }
 
 #pragma mark - CNContactPickerViewControllerDelegate
@@ -65,13 +65,13 @@ RCT_EXPORT_METHOD(openContactPicker:(NSDictionary *) args
   CNPhoneNumber* contactPhone = contactProperty.value;
   NSString* phoneNumber = contactPhone.stringValue;
   NSString* contactName = [CNContactFormatter stringFromContact:contact style:CNContactFormatterStyleFullName];
-  
+
   RCTResponseSenderBlock callback = _callbacks[0];
-  
+
   callback(@[contactName,phoneNumber]);
-  
+
   [_callbacks removeObjectAtIndex:0];
-  
+
 }
 
 @end

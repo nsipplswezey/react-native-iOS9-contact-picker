@@ -16,9 +16,8 @@ var Platform = require('Platform');
 var TouchableWithoutFeedback = require('TouchableWithoutFeedback');
 var cssVar = require('cssVar');
 var NavButton = require('./NavButton.js').default;
-  
+
 var PhonePicker = require('./PhonePicker.js');
-var PickerButton = require('./PickerButton').default;
 var PhonePickerView = require('./PhonePickerView.js');
 
 var styles = StyleSheet.create({

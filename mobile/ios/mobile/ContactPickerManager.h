@@ -16,6 +16,6 @@
 #import "RCTBridgeModule.h"
 #import "RCTInvalidating.h"
 
-@interface RCTContactPickerManager : NSObject <RCTBridgeModule, RCTInvalidating>
+@interface ContactPickerManager : NSObject <RCTBridgeModule, RCTInvalidating>
 
 @end
