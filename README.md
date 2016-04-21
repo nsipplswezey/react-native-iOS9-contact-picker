@@ -13,7 +13,7 @@ cd mobile
 react-native run-ios
 ```
 
-This is an iOS only component, paired with a blog post about passing callbacks between react-native and native iOS modules.
+[This is an iOS only component, paired with a blog post about passing callbacks between react-native and native iOS modules.](https://nsipplswezey.github.io/2016/04/21/Going-Deeper-With-React-Native-and-iOS-Native-UI.html)
 
 ## A Note
 
