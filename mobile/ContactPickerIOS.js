@@ -8,9 +8,10 @@
 
 'use strict'
 
-var RCTContactPickerManager = require('NativeModules').ContactPickerManager;
+const RCTContactPickerManager = require('NativeModules').ContactPickerManager;
 
-class ContactPickerIOS {
+export default class Camera extends ContactPickerIOS {
+
 /**
  * Creates the native iOS contact picker popup.
  * Uses iOS9 CNContact framework to select contacts.
@@ -20,7 +21,15 @@ class ContactPickerIOS {
   static openPicker(
     options,
     callback
-  ): void {
+  )
+
+  constructor() {
+    super();
+    this.state = {
+
+   };
+
+   void {
     RCTContactPickerManager.openContactPicker(options,callback)
   }
 }

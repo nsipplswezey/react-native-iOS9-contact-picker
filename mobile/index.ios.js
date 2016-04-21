@@ -1,7 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
 
 'use strict';
 import React, {
@@ -19,10 +15,9 @@ import React, {
 var Platform = require('Platform');
 var TouchableWithoutFeedback = require('TouchableWithoutFeedback');
 var cssVar = require('cssVar');
-var CourseMap = require('./CourseMap.js');
-var MapViewExample = CourseMap.examples[1].component;
 var NavButton = require('./NavButton.js').default;
-var PhonePicker = require('./PhonePicker');
+  
+var PhonePicker = require('./PhonePicker.js');
 var PickerButton = require('./PickerButton').default;
 var PhonePickerView = require('./PhonePickerView.js');
 
@@ -85,7 +80,7 @@ var NavigationBarRouteMapper = {
   },
 
   RightButton: function(route, navigator, index, navState) {
- 
+
     function _onPress(index,navState){
       var routes = createInitialRoutes();
       var maxStack = routes.length-1
@@ -95,7 +90,7 @@ var NavigationBarRouteMapper = {
       }else{
         navigator.push(nextRoute)
       }
-    
+
     }
 
     function nextRouteTitle(index){
@@ -116,7 +111,7 @@ var NavigationBarRouteMapper = {
           onPress={() => _onPress(index,navState)}
 	  style={styles.navBarRightButton}>
 	  <Text style={[styles.navBarText, styles.navBarButtonText]}>
-	    {nextRouteTitle(index)} 
+	    {nextRouteTitle(index)}
 	  </Text>
         </TouchableOpacity>
       );
@@ -137,14 +132,8 @@ var NavigationBarRouteMapper = {
 
 function createInitialRoutes() {
   return [
-    {title: 'map',
-     component: MapViewExample,},
-    {title: 'tee times',
-     component: PickerButton,},
     {title: 'friends ',
      component: PhonePickerView,},
-    {title: 'confirmations',
-     component: NavButton,}
   ]
 
 };
@@ -261,12 +250,12 @@ var TabBarExample = React.createClass({
 	    {
 	      route: JSON.stringify(event.data.route),
 	      target: event.target,
-	      type: event.type, 
+	      type: event.type,
 	    }
 	  );
 	};
 	//Observer focus chang events from the owner.
-	
+
 	this._listeners = [
 	  navigator.navigationContext.addListener('willfocus', callback),
 	  navigator.navigationContext.addListener('didfocus', callback),
@@ -275,7 +264,7 @@ var TabBarExample = React.createClass({
     }
   },
 
-}); 
+});
 
 
 class mobile extends Component {
