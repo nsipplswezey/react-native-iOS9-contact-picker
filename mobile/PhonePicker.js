@@ -10,7 +10,9 @@ import React, {
 var NavButton = require('./NavButton.js').default;
 const ContactPickerIOS = require('./ContactPickerIOS.js');
 
+
 var nativePicker = function(callback){
+  console.log('contact picker', ContactPickerIOS);
   ContactPickerIOS.openPicker({arg1: "hello"},
 			      (name,number) => callback(name,number));
 }
@@ -29,15 +31,16 @@ class PhonePicker extends Component {
     return(
       <NavButton
         onPress={() => nativePicker((name,number) => this._handleTouch(name,number))}
-        text={this.state.text} 
+        text={this.state.text}
       />
     );
   }
 
   _handleTouch(name,number){
-    this.setState({inviteName: name,
-		   inviteNumber: number,
-    		   text: name + ' - ' + number});
+    this.setState(
+      {inviteName : name,
+		   inviteNumber : number,
+    	 text : name + ' - ' + number});
   }
 }
 
