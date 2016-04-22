@@ -1,5 +1,7 @@
 # React-Native iOS9 Native Contact Picker
 
+![Demo Gift](https://nsipplswezey.github.io/assets/anim.gif)
+
 Using iOS9's new CNContact framework to pick contacts with react-native.
 
 This repo demos a react-native NavButton component, which on-tap triggers a native iOS modal containing the phone's contacts, managed in the ContactPickerManager obj-c file. User then selects a contact, and the contacts info is rendered as state into the NavButton.
