@@ -1,6 +1,6 @@
 # React-Native iOS9 Native Contact Picker
 
-![Demo Gift](https://nsipplswezey.github.io/assets/anim.gif)
+![Demo Gif](https://nsipplswezey.github.io/assets/anim.gif)
 
 Using iOS9's new CNContact framework to pick contacts with react-native.
 
